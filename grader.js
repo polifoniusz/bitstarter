@@ -44,7 +44,6 @@ var loadChecks = function(checksfile) {
 
 var checkHtmlFile = function(htmlfile, checksfile, url) {
 	if (url!=null) {
-		console.log("Fetching: " + url);
 		rest.get(url, {followRedirects: false}).on('complete',
 			function(result) {
 				if (result instanceof Error) {
@@ -57,7 +56,6 @@ var checkHtmlFile = function(htmlfile, checksfile, url) {
 		);
 	}
 	else {
-		console.log("Opening: " + htmlfile);
 		checkHtml(checksfile, cheerio.load(fs.readFileSync(htmlfile)));
 	}
 };
